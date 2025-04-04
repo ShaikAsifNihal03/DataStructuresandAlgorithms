@@ -24,8 +24,13 @@ int main() {
  
   //logical operator 
   //logical and (&&)
-
    char gender = 'M';
    cout << ((age>18) && (gender == 'M'))<< endl; 
+
+  //logical or(||)
+   cout << ((age>18) || (gender == 'M'))<< endl;  
+   
+   //logical not
+   cout << !(age>18);
   return 0;
 }
