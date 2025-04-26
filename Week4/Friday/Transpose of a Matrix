@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+        int rowsOfOrginalMatrix = matrix.size();
+        int colsOfOrginalMatrix = matrix[0].size();
+        //transpose means rows get converted into columns and columns get converted into rows 
+        int rowsOfTransposeMatrix = colsOfOrginalMatrix;
+        int colsOfTransposeMatrix = rowsOfOrginalMatrix;
+
+        vector<vector<int> > transpose(rowsOfTransposeMatrix,vector<int>(colsOfTransposeMatrix,0));
+        for(int i = 0;i<rowsOfTransposeMatrix;i++)
+        {
+             for(int j =0;j<colsOfTransposeMatrix ; j++)
+             {
+                transpose[i][j]= matrix[j][i];
+             }
+        }
+        return transpose;
+    }
+};
