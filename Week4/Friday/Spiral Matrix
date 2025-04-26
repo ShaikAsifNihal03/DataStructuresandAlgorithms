@@ -1,0 +1,67 @@
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+    
+    // n ---> No of rows 
+     int n = matrix.size();
+    // m ----> No of Columns 
+     int m = matrix[0].size();
+
+
+     int startingRow = 0 ; 
+     int startingCol = 0;
+     int endingRow = n-1;
+     int endingCol = m-1;
+
+     //array
+     vector<int> ans;
+
+     //logic loop --> if there are any pending elements to print
+     //if yes  --> perform 4 steps 
+     // 1. startingRow
+     // 2. endingCol
+     // 3. endingRow
+     // 4. startingCol
+
+
+     while(startingRow <= endingRow && startingCol <= endingCol)
+     {
+        //staringRow print
+        for(int col = startingCol; col <= endingCol ; col++)
+        {
+            ans.push_back(matrix[startingRow][col]);
+        }
+        //after printing startingRow elements then go for endingCol by incrementing startingRow by 1       
+         startingRow++;
+        //endingCol print
+        for(int row = startingRow ; row <= endingRow ; row++)
+        {
+            ans.push_back(matrix[row][endingCol]);
+        }
+        //afer printing endingCol elements we go for endingRow by decrementing endingCol by 1 
+        endingCol--;
+        //endingRow print
+        if(startingRow <= endingRow)
+        {
+          for(int col = endingCol ; col >= startingCol ; col--)
+          {
+            ans.push_back(matrix[endingRow][col]);
+          }
+         //afer printing endingRow elements we go for startingCol by decrementing endingRow by 1 
+        endingRow--;
+        }
+        if(startingCol <= endingCol)
+        {
+          //startingCol print
+          for(int row = endingRow ; row >= startingRow ; row--)
+          { 
+            ans.push_back(matrix[row][startingCol]);
+          }
+          //afer printing startingCol elements if we have elements  we go to again startingRow by incrementing the   startingCol  condition by 1 
+          startingCol++;
+        }
+     }
+     return ans;
+        
+    }
+};
