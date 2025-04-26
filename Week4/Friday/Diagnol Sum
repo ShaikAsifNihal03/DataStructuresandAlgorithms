@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat)
+    {         
+        int sum = 0 ; 
+        int rows = mat.size();
+        int cols = mat[0].size();
+        int size = mat.size();   
+        //1.d1 sum 
+         for(int i = 0 ; i<size ; i++)
+         {
+            sum+=mat[i][i];
+         } 
+         //2.d2 sum 
+         for(int i =0 ; i<size; i++ )
+         {
+            sum+=mat[i][size-i-1];
+         }
+         //3.subracting dup from 2d vector array for odd size
+         if(size & 1)
+         {
+            sum = sum - mat[size/2][size/2];
+         }
+         //4.return sum
+         return sum; 
+    }
+};
